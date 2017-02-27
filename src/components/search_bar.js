@@ -1,8 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class SearchBar extends Component {
+    constructor(props) { // all JS classes have the constructor method 
+        super(props);
+
+        this.state = { term: '' };
+    }
+
     render() {
-        return <input onChange={(event) => console.log(event.target.value)} />; // bu event handler, onChange de React event, onu this.onInputChange ile override ediyoruz
+        return (
+            <div>
+                <input
+                    value={this.state.term}
+                    onChange={(event) => this.setState({ term: event.target.value })} />
+            </div>
+        );
     }
 }
 
